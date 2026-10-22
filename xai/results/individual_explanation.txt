@@ -1,0 +1,26 @@
+INDIVIDUAL SHAP EXPLANATION
+============================================================
+
+Test record index: 56460
+Original label: 1
+Model prediction: 1
+Attack probability: 0.9997
+
+Top contributing features:
+
+                    feature  shap_value  feature_value  absolute_shap
+numerical__ct_dst_sport_ltm    2.353478       0.066667       2.353478
+            numerical__sttl    1.554609       0.996078       1.554609
+   categorical__service_dns    1.291602       1.000000       1.291602
+          numerical__sbytes    0.969558       0.000007       0.969558
+    numerical__ct_state_ttl    0.407940       0.333333       0.407940
+          numerical__synack    0.309882       0.000000       0.309882
+           numerical__smean    0.250635       0.019648       0.250635
+     categorical__service_-    0.150863       0.000000       0.150863
+           numerical__sload    0.142562       0.010879       0.142562
+            numerical__swin    0.105712       0.000000       0.105712
+      numerical__ct_srv_dst   -0.099057       0.049180       0.099057
+            numerical__rate    0.081016       0.142857       0.081016
+      numerical__ct_srv_src   -0.075766       0.145161       0.075766
+          numerical__tcprtt    0.067136       0.000000       0.067136
+          numerical__dbytes   -0.065802       0.000000       0.065802

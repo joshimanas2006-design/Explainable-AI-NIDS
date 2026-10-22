@@ -218,3 +218,15 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+venv/
+.venv/
+__pycache__/
+*.pyc
+.env
+*.zip
+
+dataset/*.csv
+preprocessing/processed/*.csv
+models/saved/random_forest.pkl

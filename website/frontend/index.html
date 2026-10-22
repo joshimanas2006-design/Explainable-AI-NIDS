@@ -1,0 +1,2449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>XAI-NIDS | Network Intrusion Detection</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="brand-icon">🛡</div>
+
+            <div>
+                <h2>XAI-NIDS</h2>
+                <span>Cybersecurity Research</span>
+            </div>
+        </div>
+
+        <div class="nav-title">MAIN MENU</div>
+
+        <nav class="nav">
+
+            <button class="nav-item active" data-page="dashboard">
+                <span>⌂</span>
+                Dashboard
+            </button>
+
+            <button class="nav-item" data-page="detection">
+                <span>⚡</span>
+                Intrusion Detection
+            </button>
+
+            <button class="nav-item" data-page="explain">
+                <span>◈</span>
+                Explain Prediction
+            </button>
+
+            <button class="nav-item" data-page="comparison">
+                <span>▣</span>
+                Model Comparison
+            </button>
+
+            <button class="nav-item" data-page="shap">
+                <span>✦</span>
+                SHAP Analysis
+            </button>
+
+            <button class="nav-item" data-page="research">
+                <span>📄</span>
+                Research
+            </button>
+
+        </nav>
+
+        <div class="sidebar-bottom">
+
+            <div class="system-card">
+
+                <div class="system-dot"></div>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>AI Detection Engine</small>
+                </div>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN ================= -->
+    <main class="main">
+
+        <!-- TOPBAR -->
+        <header class="topbar">
+
+            <div class="topbar-left">
+
+                <div class="breadcrumb">
+                    <span>XAI-NIDS</span>
+                    <span>/</span>
+                    <strong id="page-title">Dashboard</strong>
+                </div>
+
+            </div>
+
+            <div class="backend-status" id="backend-status">
+
+                <span class="status-dot"></span>
+
+                <span id="backend-status-text">
+                    Checking Backend...
+                </span>
+
+            </div>
+
+        </header>
+
+
+        <!-- ===================================================== -->
+        <!-- DASHBOARD -->
+        <!-- ===================================================== -->
+
+        <section class="page active" id="page-dashboard">
+
+            <div class="hero">
+
+                <div class="hero-content">
+
+                    <div class="eyebrow">
+                        <span></span>
+                        ARTIFICIAL INTELLIGENCE × CYBERSECURITY
+                    </div>
+
+                    <h1>
+                        Explainable Artificial Intelligence
+                        <br>
+                        for <span>Network Intrusion Detection</span>
+                    </h1>
+
+                    <p>
+                        Detect malicious network traffic using XGBoost
+                        and understand every prediction using SHAP
+                        explainability.
+                    </p>
+
+                    <div class="hero-actions">
+
+                        <button
+                            class="btn btn-primary"
+                            data-go="detection"
+                        >
+                            Start Detection →
+                        </button>
+
+                        <button
+                            class="btn btn-secondary"
+                            data-go="shap"
+                        >
+                            Explore SHAP
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="hero-visual">
+
+                    <div class="shield">
+                        <div class="shield-inner">
+                            🛡
+                        </div>
+                    </div>
+
+                    <div class="orbit orbit-1"></div>
+                    <div class="orbit orbit-2"></div>
+
+                    <div class="floating-node node-1">
+                        AI
+                    </div>
+
+                    <div class="floating-node node-2">
+                        XAI
+                    </div>
+
+                    <div class="floating-node node-3">
+                        ML
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD STATS -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon cyan">
+                        ◎
+                    </div>
+
+                    <div>
+                        <span>MODEL</span>
+                        <strong>XGBoost</strong>
+                        <small>Gradient Boosting</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div>
+                        <span>ACCURACY</span>
+                        <strong>87.32%</strong>
+                        <small>UNSW-NB15 Dataset</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ✦
+                    </div>
+
+                    <div>
+                        <span>ROC-AUC</span>
+                        <strong>98.46%</strong>
+                        <small>Model performance</small>
+                    </div>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        ◉
+                    </div>
+
+                    <div>
+                        <span>FEATURES</span>
+                        <strong>194</strong>
+                        <small>Processed features</small>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- DASHBOARD GRID -->
+
+            <div class="dashboard-grid">
+
+                <!-- PIPELINE -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="panel-label">
+                                MODEL PIPELINE
+                            </span>
+
+                            <h3>
+                                Detection Architecture
+                            </h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="pipeline">
+
+                        <div class="pipeline-step">
+
+                            <div class="pipeline-icon">
+                                01
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Network Traffic
+                                </strong>
+
+                                <span>
+                                    Raw network features
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline-arrow">
+                            →
+                        </div>
+
+
+                        <div class="pipeline-step">
+
+                            <div class="pipeline-icon">
+                                02
+                            </div>
+
+                            <div>
+                                <strong>
+                                    Preprocessing
+                                </strong>
+
+                                <span>
+                                    42 → 194 features
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline-arrow">
+                            →
+                        </div>
+
+
+                        <div class="pipeline-step">
+
+                            <div class="pipeline-icon">
+                                03
+                            </div>
+
+                            <div>
+                                <strong>
+                                    XGBoost
+                                </strong>
+
+                                <span>
+                                    Attack classification
+                                </span>
+                            </div>
+
+                        </div>
+
+
+                        <div class="pipeline-arrow">
+                            →
+                        </div>
+
+
+                        <div class="pipeline-step">
+
+                            <div class="pipeline-icon">
+                                04
+                            </div>
+
+                            <div>
+                                <strong>
+                                    SHAP
+                                </strong>
+
+                                <span>
+                                    Explain prediction
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- WHY XAI -->
+
+                <div class="panel">
+
+                    <div class="panel-header">
+
+                        <div>
+                            <span class="panel-label">
+                                EXPLAINABILITY
+                            </span>
+
+                            <h3>
+                                Why XAI?
+                            </h3>
+                        </div>
+
+                    </div>
+
+
+                    <div class="why-xai">
+
+                        <div class="why-item">
+
+                            <span>01</span>
+
+                            <div>
+                                <strong>
+                                    Transparency
+                                </strong>
+
+                                <p>
+                                    Understand why the model classified
+                                    traffic as malicious.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="why-item">
+
+                            <span>02</span>
+
+                            <div>
+                                <strong>
+                                    Trust
+                                </strong>
+
+                                <p>
+                                    Inspect the features influencing
+                                    individual predictions.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <div class="why-item">
+
+                            <span>03</span>
+
+                            <div>
+                                <strong>
+                                    Interpretability
+                                </strong>
+
+                                <p>
+                                    Use SHAP values to explain complex
+                                    machine learning decisions.
+                                </p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- DETECTION -->
+        <!-- ===================================================== -->
+
+        <section class="page" id="page-detection">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <span class="panel-label">
+                        LIVE ANALYSIS
+                    </span>
+
+                    <h1>
+                        Intrusion Detection
+                    </h1>
+
+                    <p>
+                        Enter network traffic features and let the
+                        XGBoost model determine whether the traffic
+                        is normal or malicious.
+                    </p>
+
+                </div>
+
+
+                <div class="model-badge">
+
+                    <span></span>
+
+                    XGBoost Active
+
+                </div>
+
+            </div>
+
+
+            <div class="detection-toolbar">
+
+                <button
+                    class="btn btn-secondary"
+                    id="load-sample-btn"
+                >
+                    Load Sample Traffic
+                </button>
+
+                <button
+                    class="btn btn-secondary"
+                    id="clear-form-btn"
+                >
+                    Clear Form
+                </button>
+
+            </div>
+
+
+            <!-- STATUS -->
+
+            <div
+                class="analysis-status hidden"
+                id="detection-status"
+            >
+
+                <div class="loading-spinner"></div>
+
+                <div>
+
+                    <strong>
+                        Analyzing Network Traffic
+                    </strong>
+
+                    <span id="detection-status-text">
+                        Processing features and generating
+                        SHAP explanation...
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORM -->
+
+            <div class="panel detection-panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            NETWORK FEATURES
+                        </span>
+
+                        <h3>
+                            Traffic Input
+                        </h3>
+
+                    </div>
+
+                    <span class="feature-count">
+                        42 RAW FEATURES
+                    </span>
+
+                </div>
+
+
+                <form id="traffic-form">
+
+                    <!-- SECTION 01 -->
+
+                    <div class="form-section">
+
+                        <div class="form-section-title">
+
+                            <span>01</span>
+
+                            Connection Information
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="dur">
+                                    Duration
+                                </label>
+
+                                <input
+                                    id="dur"
+                                    name="dur"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="proto">
+                                    Protocol
+                                </label>
+
+                                <input
+                                    id="proto"
+                                    name="proto"
+                                    type="text"
+                                    value="tcp"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="service">
+                                    Service
+                                </label>
+
+                                <input
+                                    id="service"
+                                    name="service"
+                                    type="text"
+                                    value="-"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="state">
+                                    State
+                                </label>
+
+                                <input
+                                    id="state"
+                                    name="state"
+                                    type="text"
+                                    value="FIN"
+                                >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SECTION 02 -->
+
+                    <div class="form-section">
+
+                        <div class="form-section-title">
+
+                            <span>02</span>
+
+                            Packet & Byte Statistics
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="spkts">
+                                    Source Packets
+                                </label>
+
+                                <input
+                                    id="spkts"
+                                    name="spkts"
+                                    type="number"
+                                    step="any"
+                                    value="10"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dpkts">
+                                    Destination Packets
+                                </label>
+
+                                <input
+                                    id="dpkts"
+                                    name="dpkts"
+                                    type="number"
+                                    step="any"
+                                    value="8"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="sbytes">
+                                    Source Bytes
+                                </label>
+
+                                <input
+                                    id="sbytes"
+                                    name="sbytes"
+                                    type="number"
+                                    step="any"
+                                    value="1000"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dbytes">
+                                    Destination Bytes
+                                </label>
+
+                                <input
+                                    id="dbytes"
+                                    name="dbytes"
+                                    type="number"
+                                    step="any"
+                                    value="800"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="rate">
+                                    Rate
+                                </label>
+
+                                <input
+                                    id="rate"
+                                    name="rate"
+                                    type="number"
+                                    step="any"
+                                    value="10"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="sttl">
+                                    Source TTL
+                                </label>
+
+                                <input
+                                    id="sttl"
+                                    name="sttl"
+                                    type="number"
+                                    step="any"
+                                    value="64"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dttl">
+                                    Destination TTL
+                                </label>
+
+                                <input
+                                    id="dttl"
+                                    name="dttl"
+                                    type="number"
+                                    step="any"
+                                    value="64"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="sload">
+                                    Source Load
+                                </label>
+
+                                <input
+                                    id="sload"
+                                    name="sload"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dload">
+                                    Destination Load
+                                </label>
+
+                                <input
+                                    id="dload"
+                                    name="dload"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="sloss">
+                                    Source Loss
+                                </label>
+
+                                <input
+                                    id="sloss"
+                                    name="sloss"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dloss">
+                                    Destination Loss
+                                </label>
+
+                                <input
+                                    id="dloss"
+                                    name="dloss"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SECTION 03 -->
+
+                    <div class="form-section">
+
+                        <div class="form-section-title">
+
+                            <span>03</span>
+
+                            Timing & TCP Statistics
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="sinpkt">
+                                    Source Inter-Packet
+                                </label>
+
+                                <input
+                                    id="sinpkt"
+                                    name="sinpkt"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dinpkt">
+                                    Destination Inter-Packet
+                                </label>
+
+                                <input
+                                    id="dinpkt"
+                                    name="dinpkt"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="sjit">
+                                    Source Jitter
+                                </label>
+
+                                <input
+                                    id="sjit"
+                                    name="sjit"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="djit">
+                                    Destination Jitter
+                                </label>
+
+                                <input
+                                    id="djit"
+                                    name="djit"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="swin">
+                                    Source Window
+                                </label>
+
+                                <input
+                                    id="swin"
+                                    name="swin"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="stcpb">
+                                    Source TCP Base
+                                </label>
+
+                                <input
+                                    id="stcpb"
+                                    name="stcpb"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dtcpb">
+                                    Destination TCP Base
+                                </label>
+
+                                <input
+                                    id="dtcpb"
+                                    name="dtcpb"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dwin">
+                                    Destination Window
+                                </label>
+
+                                <input
+                                    id="dwin"
+                                    name="dwin"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="tcprtt">
+                                    TCP RTT
+                                </label>
+
+                                <input
+                                    id="tcprtt"
+                                    name="tcprtt"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="synack">
+                                    SYN-ACK
+                                </label>
+
+                                <input
+                                    id="synack"
+                                    name="synack"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ackdat">
+                                    ACK Data
+                                </label>
+
+                                <input
+                                    id="ackdat"
+                                    name="ackdat"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="smean">
+                                    Source Mean
+                                </label>
+
+                                <input
+                                    id="smean"
+                                    name="smean"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="dmean">
+                                    Destination Mean
+                                </label>
+
+                                <input
+                                    id="dmean"
+                                    name="dmean"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- SECTION 04 -->
+
+                    <div class="form-section">
+
+                        <div class="form-section-title">
+
+                            <span>04</span>
+
+                            Connection Behaviour
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="field">
+                                <label for="trans_depth">
+                                    Transaction Depth
+                                </label>
+
+                                <input
+                                    id="trans_depth"
+                                    name="trans_depth"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="response_body_len">
+                                    Response Body Length
+                                </label>
+
+                                <input
+                                    id="response_body_len"
+                                    name="response_body_len"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_state_ttl">
+                                    State TTL Count
+                                </label>
+
+                                <input
+                                    id="ct_state_ttl"
+                                    name="ct_state_ttl"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_flw_http_mthd">
+                                    HTTP Method Count
+                                </label>
+
+                                <input
+                                    id="ct_flw_http_mthd"
+                                    name="ct_flw_http_mthd"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="is_ftp_login">
+                                    FTP Login
+                                </label>
+
+                                <input
+                                    id="is_ftp_login"
+                                    name="is_ftp_login"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_ftp_cmd">
+                                    FTP Commands
+                                </label>
+
+                                <input
+                                    id="ct_ftp_cmd"
+                                    name="ct_ftp_cmd"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_srv_src">
+                                    Service Source Count
+                                </label>
+
+                                <input
+                                    id="ct_srv_src"
+                                    name="ct_srv_src"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_srv_dst">
+                                    Service Destination Count
+                                </label>
+
+                                <input
+                                    id="ct_srv_dst"
+                                    name="ct_srv_dst"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_dst_ltm">
+                                    Destination LTM Count
+                                </label>
+
+                                <input
+                                    id="ct_dst_ltm"
+                                    name="ct_dst_ltm"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_src_ltm">
+                                    Source LTM Count
+                                </label>
+
+                                <input
+                                    id="ct_src_ltm"
+                                    name="ct_src_ltm"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_src_dport_ltm">
+                                    Source Destination-Port LTM
+                                </label>
+
+                                <input
+                                    id="ct_src_dport_ltm"
+                                    name="ct_src_dport_ltm"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_dst_sport_ltm">
+                                    Destination Source-Port LTM
+                                </label>
+
+                                <input
+                                    id="ct_dst_sport_ltm"
+                                    name="ct_dst_sport_ltm"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="ct_dst_src_ltm">
+                                    Destination Source LTM
+                                </label>
+
+                                <input
+                                    id="ct_dst_src_ltm"
+                                    name="ct_dst_src_ltm"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+
+                            <div class="field">
+                                <label for="is_sm_ips_ports">
+                                    Same IP/Port
+                                </label>
+
+                                <input
+                                    id="is_sm_ips_ports"
+                                    name="is_sm_ips_ports"
+                                    type="number"
+                                    step="any"
+                                    value="0"
+                                >
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- FORM ACTIONS -->
+
+                    <div class="form-actions">
+
+                        <button
+                            type="button"
+                            class="btn btn-secondary"
+                            id="load-sample-btn-bottom"
+                        >
+                            Load Sample
+                        </button>
+
+                        <button
+                            type="reset"
+                            class="btn btn-secondary"
+                        >
+                            Reset
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary analyze-btn"
+                        >
+                            Analyze Traffic →
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+            <!-- ================================================= -->
+            <!-- PREDICTION RESULT -->
+            <!-- ================================================= -->
+
+            <div
+                class="panel prediction-panel hidden"
+                id="prediction-result"
+            >
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            ANALYSIS RESULT
+                        </span>
+
+                        <h3>
+                            Classification
+                        </h3>
+
+                    </div>
+
+                    <span class="prediction-model">
+                        XGBoost
+                    </span>
+
+                </div>
+
+
+                <div class="prediction-main">
+
+                    <div
+                        class="prediction-badge"
+                        id="prediction-badge"
+                    >
+
+                        <span
+                            class="prediction-icon"
+                            id="prediction-icon"
+                        >
+                            !
+                        </span>
+
+                        <div>
+
+                            <small>
+                                MODEL CLASSIFICATION
+                            </small>
+
+                            <strong id="prediction-label">
+                                Attack
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="probability-box">
+
+                        <div class="probability-item">
+
+                            <div class="probability-top">
+
+                                <span>
+                                    Attack Probability
+                                </span>
+
+                                <strong id="attack-probability">
+                                    0%
+                                </strong>
+
+                            </div>
+
+                            <div class="progress">
+
+                                <div
+                                    class="progress-bar attack"
+                                    id="attack-progress"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="probability-item">
+
+                            <div class="probability-top">
+
+                                <span>
+                                    Normal Probability
+                                </span>
+
+                                <strong id="normal-probability">
+                                    0%
+                                </strong>
+
+                            </div>
+
+                            <div class="progress">
+
+                                <div
+                                    class="progress-bar normal"
+                                    id="normal-progress"
+                                ></div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="prediction-description"
+                    id="prediction-description"
+                >
+                    The model result will appear here.
+                </div>
+
+
+                <!-- CURRENT SHAP -->
+
+                <div
+                    class="current-shap hidden"
+                    id="current-shap"
+                >
+
+                    <div class="shap-heading">
+
+                        <div>
+
+                            <span class="panel-label">
+                                EXPLAINABLE AI — SHAP
+                            </span>
+
+                            <h3>
+                                Why was this classified this way?
+                            </h3>
+
+                        </div>
+
+                        <button
+                            class="btn btn-secondary"
+                            id="view-full-explanation"
+                        >
+                            Full Explanation →
+                        </button>
+
+                    </div>
+
+
+                    <div class="shap-summary-grid">
+
+                        <div class="shap-contributors">
+
+                            <h4>
+                                Top Contributing Features
+                            </h4>
+
+                            <div id="top-features-list"></div>
+
+                        </div>
+
+
+                        <div class="shap-contributors">
+
+                            <h4>
+                                Contribution Direction
+                            </h4>
+
+                            <div id="direction-list"></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- EXPLAIN CTA -->
+
+                <div
+                    class="explain-cta hidden"
+                    id="explain-cta"
+                >
+
+                    <div>
+
+                        <strong>
+                            Want to understand this prediction?
+                        </strong>
+
+                        <span>
+                            View the complete SHAP explanation
+                            and feature contributions.
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="btn btn-primary"
+                        id="explain-result-btn"
+                    >
+                        Explain Prediction →
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="error-box hidden"
+                id="prediction-error"
+            ></div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- EXPLAIN PREDICTION -->
+        <!-- ===================================================== -->
+
+        <section class="page" id="page-explain">
+
+            <div class="page-heading">
+
+                <div>
+
+                    <span class="panel-label">
+                        MODEL INTERPRETABILITY
+                    </span>
+
+                    <h1>
+                        Explain Prediction
+                    </h1>
+
+                    <p>
+                        Understand which processed features influenced
+                        the current XGBoost prediction using SHAP.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMPTY STATE -->
+
+            <div
+                class="empty-state"
+                id="explain-empty"
+            >
+
+                <div class="empty-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    No Prediction Available
+                </h3>
+
+                <p>
+                    Run an intrusion detection analysis first.
+                    The SHAP explanation for your prediction
+                    will appear here.
+                </p>
+
+                <button
+                    class="btn btn-primary"
+                    data-go="detection"
+                >
+                    Go to Detection →
+                </button>
+
+            </div>
+
+
+            <!-- EXPLANATION CONTENT -->
+
+            <div
+                id="explain-content"
+                class="hidden"
+            >
+
+                <div class="explanation-result">
+
+                    <div class="explanation-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                CURRENT PREDICTION
+                            </span>
+
+                            <h2 id="explain-classification">
+                                Attack
+                            </h2>
+
+                        </div>
+
+
+                        <div class="explain-probability">
+
+                            <span>
+                                Attack Probability
+                            </span>
+
+                            <strong id="explain-probability">
+                                0%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="explanation-grid">
+
+                        <!-- LOCAL EXPLANATION -->
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        LOCAL EXPLANATION
+                                    </span>
+
+                                    <h3>
+                                        Top Feature Contributions
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+                            <div id="explain-feature-list"></div>
+
+                        </div>
+
+
+                        <!-- INTERPRETATION -->
+
+                        <div class="panel">
+
+                            <div class="panel-header">
+
+                                <div>
+
+                                    <span class="panel-label">
+                                        INTERPRETATION
+                                    </span>
+
+                                    <h3>
+                                        How to Read SHAP
+                                    </h3>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="interpretation-box">
+
+                                <div class="interpretation-item positive">
+
+                                    <span>+</span>
+
+                                    <div>
+
+                                        <strong>
+                                            Positive SHAP Value
+                                        </strong>
+
+                                        <p>
+                                            Pushes the model prediction
+                                            toward the attack class.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="interpretation-item negative">
+
+                                    <span>−</span>
+
+                                    <div>
+
+                                        <strong>
+                                            Negative SHAP Value
+                                        </strong>
+
+                                        <p>
+                                            Pushes the model prediction
+                                            toward the normal class.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- GLOBAL CONTEXT -->
+
+                    <div class="panel">
+
+                        <div class="panel-header">
+
+                            <div>
+
+                                <span class="panel-label">
+                                    GLOBAL CONTEXT
+                                </span>
+
+                                <h3>
+                                    Model Feature Importance
+                                </h3>
+
+                            </div>
+
+                        </div>
+
+                        <div id="current-global-features"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- MODEL COMPARISON -->
+        <!-- ===================================================== -->
+
+        <section
+            class="page"
+            id="page-comparison"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <span class="panel-label">
+                        PERFORMANCE EVALUATION
+                    </span>
+
+                    <h1>
+                        Model Comparison
+                    </h1>
+
+                    <p>
+                        Comparison of machine learning models evaluated
+                        for network intrusion detection.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="model-cards">
+
+                <div class="model-card">
+
+                    <span>
+                        LOGISTIC REGRESSION
+                    </span>
+
+                    <strong>
+                        80.61%
+                    </strong>
+
+                    <small>
+                        Accuracy
+                    </small>
+
+                </div>
+
+
+                <div class="model-card">
+
+                    <span>
+                        DECISION TREE
+                    </span>
+
+                    <strong>
+                        86.18%
+                    </strong>
+
+                    <small>
+                        Accuracy
+                    </small>
+
+                </div>
+
+
+                <div class="model-card">
+
+                    <span>
+                        RANDOM FOREST
+                    </span>
+
+                    <strong>
+                        86.85%
+                    </strong>
+
+                    <small>
+                        Accuracy
+                    </small>
+
+                </div>
+
+
+                <div class="model-card active-model">
+
+                    <span>
+                        XGBOOST
+                    </span>
+
+                    <strong>
+                        87.32%
+                    </strong>
+
+                    <small>
+                        Accuracy
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            METRICS
+                        </span>
+
+                        <h3>
+                            Performance Comparison
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+                    <table class="model-table">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Model</th>
+                                <th>Accuracy</th>
+                                <th>Precision</th>
+                                <th>Recall</th>
+                                <th>F1 Score</th>
+                                <th>ROC-AUC</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+
+                                <td>
+                                    Logistic Regression
+                                </td>
+
+                                <td>
+                                    80.61%
+                                </td>
+
+                                <td>
+                                    74.94%
+                                </td>
+
+                                <td>
+                                    97.33%
+                                </td>
+
+                                <td>
+                                    84.68%
+                                </td>
+
+                                <td>
+                                    95.53%
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Decision Tree
+                                </td>
+
+                                <td>
+                                    86.18%
+                                </td>
+
+                                <td>
+                                    82.46%
+                                </td>
+
+                                <td>
+                                    95.12%
+                                </td>
+
+                                <td>
+                                    88.34%
+                                </td>
+
+                                <td>
+                                    85.42%
+                                </td>
+
+                            </tr>
+
+
+                            <tr>
+
+                                <td>
+                                    Random Forest
+                                </td>
+
+                                <td>
+                                    86.85%
+                                </td>
+
+                                <td>
+                                    81.42%
+                                </td>
+
+                                <td>
+                                    98.64%
+                                </td>
+
+                                <td>
+                                    89.20%
+                                </td>
+
+                                <td>
+                                    98.13%
+                                </td>
+
+                            </tr>
+
+
+                            <tr class="highlight-row">
+
+                                <td>
+
+                                    <strong>
+                                        XGBoost
+                                    </strong>
+
+                                    <span class="table-badge">
+                                        CURRENT
+                                    </span>
+
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        87.32%
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        81.92%
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        98.76%
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        89.56%
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        98.46%
+                                    </strong>
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- SHAP ANALYSIS -->
+        <!-- ===================================================== -->
+
+        <section
+            class="page"
+            id="page-shap"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <span class="panel-label">
+                        EXPLAINABLE AI
+                    </span>
+
+                    <h1>
+                        SHAP Analysis
+                    </h1>
+
+                    <p>
+                        Global and local explanations generated using
+                        SHAP TreeExplainer for the XGBoost intrusion
+                        detection model.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- GLOBAL IMPORTANCE -->
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            GLOBAL EXPLANATION
+                        </span>
+
+                        <h3>
+                            Top Important Features
+                        </h3>
+
+                    </div>
+
+                </div>
+
+
+                <div
+                    class="global-feature-list"
+                    id="global-feature-list"
+                >
+
+                    <div class="loading-placeholder">
+                        Loading SHAP feature importance...
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- SHAP CHARTS -->
+
+            <div class="chart-grid">
+
+                <div class="panel chart-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                GLOBAL SHAP
+                            </span>
+
+                            <h3>
+                                Feature Importance
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <img
+                            src="/xai/results/shap_feature_importance_bar.png"
+                            alt="SHAP Feature Importance"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="panel chart-panel">
+
+                    <div class="panel-header">
+
+                        <div>
+
+                            <span class="panel-label">
+                                SHAP SUMMARY
+                            </span>
+
+                            <h3>
+                                Feature Impact Distribution
+                            </h3>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-container">
+
+                        <img
+                            src="/xai/results/shap_summary.png"
+                            alt="SHAP Summary Plot"
+                        >
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- REFERENCE EXAMPLE -->
+
+            <div class="panel example-explanation">
+
+                <div class="panel-header">
+
+                    <div>
+
+                        <span class="panel-label">
+                            REFERENCE EXAMPLE
+                        </span>
+
+                        <h3>
+                            Individual SHAP Explanation
+                        </h3>
+
+                    </div>
+
+
+                    <span class="example-badge">
+                        TEST RECORD #56460
+                    </span>
+
+                </div>
+
+
+                <div class="example-summary">
+
+                    <div>
+
+                        <span>
+                            CLASSIFICATION
+                        </span>
+
+                        <strong>
+                            Attack
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            ATTACK PROBABILITY
+                        </span>
+
+                        <strong>
+                            99.97%
+                        </strong>
+
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            EXPLANATION TYPE
+                        </span>
+
+                        <strong>
+                            Local SHAP
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chart-container individual-chart">
+
+                    <img
+                        src="/xai/results/shap_individual_prediction.png"
+                        alt="Individual SHAP Explanation"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ===================================================== -->
+        <!-- RESEARCH -->
+        <!-- ===================================================== -->
+
+        <section
+            class="page"
+            id="page-research"
+        >
+
+            <div class="page-heading">
+
+                <div>
+
+                    <span class="panel-label">
+                        ACADEMIC RESEARCH
+                    </span>
+
+                    <h1>
+                        Research Overview
+                    </h1>
+
+                    <p>
+                        Explainable Artificial Intelligence for
+                        Network Intrusion Detection.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="research-grid">
+
+                <!-- PROBLEM -->
+
+                <div class="panel">
+
+                    <span class="panel-label">
+                        PROBLEM STATEMENT
+                    </span>
+
+                    <h3>
+                        Explainability in Network Intrusion Detection
+                    </h3>
+
+                    <p class="research-text">
+                        Traditional machine learning based intrusion
+                        detection systems can identify malicious traffic,
+                        but their predictions are often difficult to
+                        interpret. This research integrates Explainable
+                        Artificial Intelligence techniques with network
+                        intrusion detection to provide transparent
+                        explanations for model decisions.
+                    </p>
+
+                </div>
+
+
+                <!-- DATASET -->
+
+                <div class="panel">
+
+                    <span class="panel-label">
+                        DATASET
+                    </span>
+
+                    <h3>
+                        UNSW-NB15
+                    </h3>
+
+                    <p class="research-text">
+                        The system uses the UNSW-NB15 network intrusion
+                        detection dataset containing network traffic
+                        records and attack categories.
+                    </p>
+
+                </div>
+
+
+                <!-- ML -->
+
+                <div class="panel">
+
+                    <span class="panel-label">
+                        MACHINE LEARNING
+                    </span>
+
+                    <h3>
+                        Models Evaluated
+                    </h3>
+
+                    <div class="research-list">
+
+                        <div>
+                            Logistic Regression
+                        </div>
+
+                        <div>
+                            Decision Tree
+                        </div>
+
+                        <div>
+                            Random Forest
+                        </div>
+
+                        <div>
+                            XGBoost
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- XAI -->
+
+                <div class="panel">
+
+                    <span class="panel-label">
+                        EXPLAINABILITY
+                    </span>
+
+                    <h3>
+                        SHAP
+                    </h3>
+
+                    <p class="research-text">
+                        SHAP values quantify the contribution of individual
+                        features to a machine learning prediction.
+                        The system provides both global feature importance
+                        and local explanations for individual traffic records.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEM FLOW -->
+
+            <div class="panel">
+
+                <span class="panel-label">
+                    SYSTEM FLOW
+                </span>
+
+
+                <div class="research-flow">
+
+                    <div>
+                        Network Traffic
+                    </div>
+
+                    <span>→</span>
+
+                    <div>
+                        Preprocessing
+                    </div>
+
+                    <span>→</span>
+
+                    <div>
+                        XGBoost
+                    </div>
+
+                    <span>→</span>
+
+                    <div>
+                        Prediction
+                    </div>
+
+                    <span>→</span>
+
+                    <div>
+                        SHAP Explanation
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

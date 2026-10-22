@@ -1,0 +1,28 @@
+LOGISTIC REGRESSION - NIDS
+==================================================
+
+Training samples: 175341
+Testing samples: 82332
+Processed features: 194
+
+Training time: 5.78 seconds
+
+Accuracy: 0.8061
+Precision: 0.7494
+Recall: 0.9733
+F1-Score: 0.8468
+ROC-AUC: 0.9553
+
+Confusion Matrix:
+[[22244 14756]
+ [ 1212 44120]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Normal       0.95      0.60      0.74     37000
+      Attack       0.75      0.97      0.85     45332
+
+    accuracy                           0.81     82332
+   macro avg       0.85      0.79      0.79     82332
+weighted avg       0.84      0.81      0.80     82332

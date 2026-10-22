@@ -1,0 +1,31 @@
+XGBOOST - NIDS
+==================================================
+
+Training samples: 175341
+Testing samples: 82332
+Processed features: 194
+
+Number of estimators: 100
+Max depth: 6
+Learning rate: 0.1
+Training time: 7.43 seconds
+
+Accuracy: 0.8732
+Precision: 0.8192
+Recall: 0.9876
+F1-Score: 0.8956
+ROC-AUC: 0.9846
+
+Confusion Matrix:
+[[27122  9878]
+ [  560 44772]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Normal       0.98      0.73      0.84     37000
+      Attack       0.82      0.99      0.90     45332
+
+    accuracy                           0.87     82332
+   macro avg       0.90      0.86      0.87     82332
+weighted avg       0.89      0.87      0.87     82332

@@ -1,0 +1,29 @@
+RANDOM FOREST - NIDS
+==================================================
+
+Training samples: 175341
+Testing samples: 82332
+Processed features: 194
+
+Number of trees: 100
+Training time: 12.88 seconds
+
+Accuracy: 0.8685
+Precision: 0.8142
+Recall: 0.9864
+F1-Score: 0.8920
+ROC-AUC: 0.9813
+
+Confusion Matrix:
+[[26795 10205]
+ [  618 44714]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Normal       0.98      0.72      0.83     37000
+      Attack       0.81      0.99      0.89     45332
+
+    accuracy                           0.87     82332
+   macro avg       0.90      0.86      0.86     82332
+weighted avg       0.89      0.87      0.87     82332

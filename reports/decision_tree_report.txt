@@ -1,0 +1,28 @@
+DECISION TREE - NIDS
+==================================================
+
+Training samples: 175341
+Testing samples: 82332
+Processed features: 194
+
+Training time: 5.33 seconds
+
+Accuracy: 0.8618
+Precision: 0.8246
+Recall: 0.9512
+F1-Score: 0.8834
+ROC-AUC: 0.8542
+
+Confusion Matrix:
+[[27829  9171]
+ [ 2210 43122]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+      Normal       0.93      0.75      0.83     37000
+      Attack       0.82      0.95      0.88     45332
+
+    accuracy                           0.86     82332
+   macro avg       0.88      0.85      0.86     82332
+weighted avg       0.87      0.86      0.86     82332
